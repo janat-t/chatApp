@@ -6,7 +6,7 @@ class MessageList extends Component {
 		const {messages} = this.props;
 		return messages.map(message => (
 			<ul className="Messages-list">
-				<Message message={message} />
+				<Message message={message} {...this.props} />
 			</ul>
 		));
 	}

@@ -13,7 +13,8 @@ class MessageForm extends Component {
 		}
 		this.props.onMessageSend({
 			user: this.props.currentUser,
-			text: this.state.text
+			text: this.state.text,
+			time: new Date()
 		});
 		this.setState({ text: "" });
 	};
