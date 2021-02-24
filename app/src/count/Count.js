@@ -5,7 +5,7 @@ import { Button } from "reactstrap";
 class Count extends Component {
 	state = {
 		socket: null,
-		count: 0
+		count: 0,
 	};
 	/*
 	handleCount = count => {
@@ -18,7 +18,7 @@ class Count extends Component {
 
 		this.setState({ socket: socket });
 
-		socket.on("count", data => {
+		socket.on("count", (data) => {
 			this.setState({ count: data.count });
 			// console.log(data);
 		});
@@ -39,8 +39,12 @@ class Count extends Component {
 		return (
 			<div>
 				<div>Count : {this.state.count}</div>
-				<Button color="success" onClick={this.clickCount}>Count</Button>{" "}
-				<Button color="warning" onClick={this.clickReset}>Reset</Button>
+				<Button color="success" onClick={this.clickCount}>
+					Count
+				</Button>{" "}
+				<Button color="warning" onClick={this.clickReset}>
+					Reset
+				</Button>
 			</div>
 		);
 	}

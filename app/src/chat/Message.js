@@ -10,7 +10,7 @@ class Message extends Component {
 						<div className="Message-content">
 							<div className="username">{message.user}</div>
 							<div className="time">
-								{message.time.toISOString().slice(11, 16)}
+								{message.time ? message.time.toISOString().slice(11, 16) : "xx:xx"}
 							</div>
 							<div className="text">{message.text}</div>
 						</div>

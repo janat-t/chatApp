@@ -39,6 +39,11 @@ class Chatroom extends Component {
 				time: new Date()
 			});
 		}
+		this.scrollToBottom();
+	}
+
+	componentDidUpdate() {
+		this.scrollToBottom();
 	}
 
 	connectServer = () => {
@@ -58,6 +63,11 @@ class Chatroom extends Component {
 		this.setState({ messages: [...this.state.messages, message] });
 	};
 
+	scrollToBottom = () => {
+		if (this.messageEnd)
+			this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+	  }
+
 	render() {
 		if (this.props.location.username == null) {
 			return <Redirect to="/chat" />;
@@ -75,6 +85,7 @@ class Chatroom extends Component {
 					onMessageSend={this.onMessageSend}
 					currentUser={username}
 				/>
+				<div style={{ float:"left", clear: "both" }} ref={(el) => { this.messagesEnd = el; }}></div>
 			</div>
 		);
 	}
